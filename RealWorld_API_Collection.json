@@ -1,0 +1,692 @@
+{
+	"info": {
+		"_postman_id": "realworld-api-collection",
+		"name": "RealWorld API Collection",
+		"description": "Colección completa para probar la API RealWorld con Spring Boot",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "🔐 Authentication",
+			"item": [
+				{
+					"name": "Register User",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"user\": {\n    \"username\": \"testuser\",\n    \"email\": \"test@example.com\",\n    \"password\": \"password123\"\n  }\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/users",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"users"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Login User",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"user\": {\n    \"email\": \"test@example.com\",\n    \"password\": \"password123\"\n  }\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/users/login",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"users",
+								"login"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "👤 User Management",
+			"item": [
+				{
+					"name": "Get Current User",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Token {{auth_token}}"
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}/user",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"user"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Current User",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "Token {{auth_token}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"user\": {\n    \"email\": \"updated@example.com\",\n    \"bio\": \"Updated bio\",\n    \"image\": \"https://example.com/image.jpg\"\n  }\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/user",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"user"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "📰 Articles",
+			"item": [
+				{
+					"name": "Get All Articles",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/articles?limit=10&offset=0",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"articles"
+							],
+							"query": [
+								{
+									"key": "limit",
+									"value": "10"
+								},
+								{
+									"key": "offset",
+									"value": "0"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Articles by Tag",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/articles?tag=java&limit=10&offset=0",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"articles"
+							],
+							"query": [
+								{
+									"key": "tag",
+									"value": "java"
+								},
+								{
+									"key": "limit",
+									"value": "10"
+								},
+								{
+									"key": "offset",
+									"value": "0"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Articles by Author",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/articles?author=testuser&limit=10&offset=0",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"articles"
+							],
+							"query": [
+								{
+									"key": "author",
+									"value": "testuser"
+								},
+								{
+									"key": "limit",
+									"value": "10"
+								},
+								{
+									"key": "offset",
+									"value": "0"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get User Feed",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Token {{auth_token}}"
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}/articles/feed?limit=10&offset=0",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"articles",
+								"feed"
+							],
+							"query": [
+								{
+									"key": "limit",
+									"value": "10"
+								},
+								{
+									"key": "offset",
+									"value": "0"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Article",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "Token {{auth_token}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"article\": {\n    \"title\": \"Test Article\",\n    \"description\": \"This is a test article\",\n    \"body\": \"This is the body of the test article. It contains the main content.\",\n    \"tagList\": [\"java\", \"spring\", \"test\"]\n  }\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/articles",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"articles"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Article by Slug",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/articles/test-article",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"articles",
+								"test-article"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Article",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "Token {{auth_token}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"article\": {\n    \"title\": \"Updated Test Article\",\n    \"description\": \"This is an updated test article\",\n    \"body\": \"This is the updated body of the test article.\"\n  }\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/articles/test-article",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"articles",
+								"test-article"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Article",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Token {{auth_token}}"
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}/articles/test-article",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"articles",
+								"test-article"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "❤️ Favorites",
+			"item": [
+				{
+					"name": "Favorite Article",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Token {{auth_token}}"
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}/articles/test-article/favorite",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"articles",
+								"test-article",
+								"favorite"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Unfavorite Article",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Token {{auth_token}}"
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}/articles/test-article/favorite",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"articles",
+								"test-article",
+								"favorite"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "💬 Comments",
+			"item": [
+				{
+					"name": "Get Comments",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/articles/test-article/comments",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"articles",
+								"test-article",
+								"comments"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Comment",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "Token {{auth_token}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"comment\": {\n    \"body\": \"This is a test comment\"\n  }\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/articles/test-article/comments",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"articles",
+								"test-article",
+								"comments"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Comment",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Token {{auth_token}}"
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}/articles/test-article/comments/{{comment_id}}",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"articles",
+								"test-article",
+								"comments",
+								"{{comment_id}}"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "👥 Profiles",
+			"item": [
+				{
+					"name": "Get Profile",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/profiles/testuser",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"profiles",
+								"testuser"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Follow User",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Token {{auth_token}}"
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}/profiles/testuser/follow",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"profiles",
+								"testuser",
+								"follow"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Unfollow User",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Token {{auth_token}}"
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}/profiles/testuser/follow",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"profiles",
+								"testuser",
+								"follow"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "🏷️ Tags",
+			"item": [
+				{
+					"name": "Get All Tags",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/tags",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"tags"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "🔍 GraphQL",
+			"item": [
+				{
+					"name": "GraphQL Playground",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/graphiql",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"graphiql"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GraphQL Query - Get Articles",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"query\": \"query {\\n  articles(limit: 10, offset: 0) {\\n    id\\n    title\\n    slug\\n    description\\n    body\\n    author {\\n      id\\n      username\\n      email\\n    }\\n    tags {\\n      id\\n      name\\n    }\\n    createdAt\\n    updatedAt\\n  }\\n}\"\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/graphql",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"graphql"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GraphQL Query - Get Users",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"query\": \"query {\\n  users {\\n    id\\n    username\\n    email\\n    bio\\n    image\\n    createdAt\\n  }\\n}\"\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/graphql",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"graphql"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "base_url",
+			"value": "http://localhost:8080",
+			"type": "string"
+		},
+		{
+			"key": "auth_token",
+			"value": "",
+			"type": "string"
+		},
+		{
+			"key": "comment_id",
+			"value": "",
+			"type": "string"
+		}
+	]
+} 
