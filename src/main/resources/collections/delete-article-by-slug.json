@@ -3,7 +3,7 @@
     "name": "Delete Article by Slug",
     "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
   },
-  "item": [
+  "item": [ 
     {
       "name": "Delete Article by Slug",
       "request": {
