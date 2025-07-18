@@ -1,0 +1,43 @@
+{
+  "info": {
+    "name": "Create Comment",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Create Comment",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Token {{token}}"
+          },
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"comment\": {\n    \"body\": \"Este es un comentario de prueba\"\n  }\n}"
+        },
+        "url": {
+          "raw": "{{baseUrl}}/articles/:slug/comments",
+          "host": ["{{baseUrl}}"],
+          "path": ["articles", ":slug", "comments"]
+        }
+      }
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "http://localhost:8080"
+    },
+    {
+      "key": "token",
+      "value": ""
+    }
+  ]
+}
