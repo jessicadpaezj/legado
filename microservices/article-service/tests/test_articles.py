@@ -1,6 +1,5 @@
 import pytest
 import bcrypt
-from flask import g
 from flask_jwt_extended import create_access_token
 
 from app import create_app, db
@@ -27,7 +26,7 @@ def get_or_create_user(app):
         email = "a@b.com"
         password = "pass"
 
-        user  = User.query.filter_by(email=email).first()
+        user = User.query.filter_by(email=email).first()
         if user:
             return user
 
@@ -139,7 +138,7 @@ def test_update_article_duplicate_title(client):
         db.session.add(article2)
         db.session.commit()
 
-    payload = {"article": {"title": f"{article2.title}"}}
+    payload = {"article": {"title": article2.title}}
     resp = client.put(f"/articles/{article1.slug}", headers={"Authorization": f"Token {token}"}, json=payload)
     assert resp.status_code == 400
     assert "error" in resp.json
