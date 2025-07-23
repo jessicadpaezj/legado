@@ -12,7 +12,6 @@ def authenticate():
         token = auth.split(" ", 1)[1]
         payload = decode_token(token, allow_expired=False)
     except Exception:
-        print("Invalid token")
         abort(401, "Invalid token")
 
     id = payload["sub"]
