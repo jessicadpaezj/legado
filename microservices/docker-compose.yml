@@ -1,9 +1,9 @@
 version: "3.8"
 
 services:
-  article-service:
-    container_name: article-service
-    build: .
+  user-service:
+    container_name: user-service
+    build: ./user-service
     environment:
       POSTGRES_DB: postgres
       POSTGRES_USER: postgres
@@ -12,6 +12,18 @@ services:
       POSTGRES_PORT: 5432
     ports:
       - "3000:3000"
+
+  article-service:
+    container_name: article-service
+    build: ./article-service
+    environment:
+      POSTGRES_DB: postgres
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_HOST: postgres-dev
+      POSTGRES_PORT: 5432
+    ports:
+      - "3001:3000"
 
   postgres:
     container_name: postgres-dev

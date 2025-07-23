@@ -1,7 +1,7 @@
 from flask import Flask
 from .config import Config
 from .extensions import db, ma, jwt
-from .api.article_routes import article_bp
+from .api.routes import blueprint
 
 def create_app():
     app = Flask(__name__)
@@ -11,7 +11,7 @@ def create_app():
     ma.init_app(app)
     jwt.init_app(app)
 
-    app.register_blueprint(article_bp)
+    app.register_blueprint(blueprint)
 
     @app.get("/health")
     def health():

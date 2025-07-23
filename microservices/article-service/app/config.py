@@ -12,6 +12,6 @@ class Config:
     SQLALCHEMY_DATABASE_URI = f"postgresql+psycopg2://{POSTGRES_USER}:{POSTGRES_PASSWORD}@{POSTGRES_HOST}:{POSTGRES_PORT}/{POSTGRES_DB}"
 
     SQLALCHEMY_TRACK_MODIFICATIONS = False
-    JSON_SORT_KEYS = False  # Keep order in JSON responses
+    JSON_SORT_KEYS = False
     JWT_SECRET_KEY = os.getenv("JWT_SECRET_KEY", "nRvyYC4soFxBdZ-F-5Nnzz5USXstR1YylsTd-mA0aKtI9HUlriGrtkf-TiuDapkLiUCogO3JOK7kwZisrHp6wA")
     JWT_ALGORITHM = "HS512"

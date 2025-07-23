@@ -1,1 +1,1 @@
-from .article_schema import article_schema, articles_schema  # noqa: F401
+from .article_schema import article_schema, articles_schema

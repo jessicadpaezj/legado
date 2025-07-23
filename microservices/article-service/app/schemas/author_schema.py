@@ -6,6 +6,6 @@ class AuthorSchema(SQLAlchemyAutoSchema):
     following = fields.Constant(False)
 
     class Meta:
-        model = User
-        fields = ("username", "bio", "image", "following")
+        model   = User
+        fields  = ("username", "bio", "image", "following")
         ordered = True

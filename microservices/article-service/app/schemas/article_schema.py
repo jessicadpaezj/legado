@@ -13,11 +13,11 @@ class ArticleSchema(SQLAlchemyAutoSchema):
     author         = fields.Nested(AuthorSchema)
 
     class Meta:
-        model = Article
+        model         = Article
         load_instance = True
-        include_fk = True
-        ordered = True
-        exclude = ("tags", "created_at", "updated_at", "user_id")
+        include_fk    = True
+        ordered       = True
+        exclude       = ("tags", "created_at", "updated_at", "user_id")
 
     def _tags(self, obj):
         return [t.name for t in obj.tags]
