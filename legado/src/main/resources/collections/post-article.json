@@ -1,0 +1,43 @@
+{
+  "info": {
+    "name": "Create Article",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Create Article",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Token {{token}}"
+          },
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"article\": {\n    \"title\": \"Nuevo artículo\",\n    \"description\": \"Descripción del artículo\",\n    \"body\": \"Contenido del artículo\"\n  }\n}"
+        },
+        "url": {
+          "raw": "{{baseUrl}}/articles",
+          "host": ["{{baseUrl}}"],
+          "path": ["articles"]
+        }
+      }
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "http://localhost:8080"
+    },
+    {
+      "key": "token",
+      "value": ""
+    }
+  ]
+}

@@ -1,0 +1,43 @@
+{
+  "info": {
+    "name": "Update Current User",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Update Current User",
+      "request": {
+        "method": "PUT",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Token {{token}}"
+          },
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"user\": {\n    \"email\": \"nuevo@email.com\",\n    \"bio\": \"Nueva bio\",\n    \"image\": \"https://example.com/nueva-imagen.jpg\"\n  }\n}"
+        },
+        "url": {
+          "raw": "{{baseUrl}}/user",
+          "host": ["{{baseUrl}}"],
+          "path": ["user"]
+        }
+      }
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "http://localhost:8080"
+    },
+    {
+      "key": "token",
+      "value": ""
+    }
+  ]
+}

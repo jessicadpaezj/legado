@@ -1,0 +1,26 @@
+{
+  "info": {
+    "name": "Get Comments",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Get Comments",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{baseUrl}}/articles/:slug/comments",
+          "host": ["{{baseUrl}}"],
+          "path": ["articles", ":slug", "comments"]
+        }
+      }
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "http://localhost:8080"
+    }
+  ]
+}

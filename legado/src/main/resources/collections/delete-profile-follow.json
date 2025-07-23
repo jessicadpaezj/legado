@@ -1,0 +1,35 @@
+{
+  "info": {
+    "name": "Unfollow Profile",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Unfollow Profile",
+      "request": {
+        "method": "DELETE",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Token {{token}}"
+          }
+        ],
+        "url": {
+          "raw": "{{baseUrl}}/profiles/:username/follow",
+          "host": ["{{baseUrl}}"],
+          "path": ["profiles", ":username", "follow"]
+        }
+      }
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "http://localhost:8080"
+    },
+    {
+      "key": "token",
+      "value": ""
+    }
+  ]
+}

@@ -1,0 +1,26 @@
+{
+  "info": {
+    "name": "Get Article by Slug",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Get Article by Slug",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{baseUrl}}/articles/:slug",
+          "host": ["{{baseUrl}}"],
+          "path": ["articles", ":slug"]
+        }
+      }
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "http://localhost:8080"
+    }
+  ]
+}

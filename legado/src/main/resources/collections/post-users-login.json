@@ -1,0 +1,35 @@
+{
+  "info": {
+    "name": "Login User",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Login User",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"user\": {\n    \"email\": \"alice@example.com\",\n    \"password\": \"pass123\"\n  }\n}"
+        },
+        "url": {
+          "raw": "{{baseUrl}}/users/login",
+          "host": ["{{baseUrl}}"],
+          "path": ["users", "login"]
+        }
+      }
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "http://localhost:8080"
+    }
+  ]
+}

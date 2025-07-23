@@ -1,0 +1,35 @@
+{
+  "info": {
+    "name": "Get Feed",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Get Feed",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Token {{token}}"
+          }
+        ],
+        "url": {
+          "raw": "{{baseUrl}}/articles/feed",
+          "host": ["{{baseUrl}}"],
+          "path": ["articles", "feed"]
+        }
+      }
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "http://localhost:8080"
+    },
+    {
+      "key": "token",
+      "value": ""
+    }
+  ]
+}
