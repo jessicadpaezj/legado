@@ -20,7 +20,7 @@ def create_app():
     with app.app_context():
         from sqlalchemy.ext.automap import automap_base
         Base = automap_base()
-        Base.prepare(db.engine, reflect=True)
+        Base.prepare(autoload_with=db.engine)
         app.Base = Base
 
     return app
